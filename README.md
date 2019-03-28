@@ -14,6 +14,12 @@
     profilsida
         edit
 
-## 3. Funktionalitet (med sekvensdiagram)
+## 3. Funktionalitet (med sekvensdiagram) 
+(finns i classroom)
+    Budgivning/köp/sälj
+
 ## 4. Arkitektur (Beskriv filer och mappar)
+
 ## 5. (Databas med ER-diagram)
+    
+
