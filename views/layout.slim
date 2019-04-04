@@ -5,6 +5,25 @@ html lang="en"
         meta name="viewport" content="width=device-width, initial-scale=1.0"/
         meta http-equiv="X-UA-Compatible" content="ie=edge"/
         title buy n' sell
+
+    header
+        h1 
+            a href="/" Buy n' Sell
+        / -if session[:logged_in] == true
+            h3 welcome back #{session[:user]}
+            form action="/user_logout" method="POST"
+                input type="submit" value="logout" 
+            br  
+        / -else
+
+            /loggin form
+        form action="/user_login" method="POST"
+            input type="text" placeholder="Username" name="username"
+            br
+            input type="text" placeholder="Password" name="password"
+            br
+            input type="submit" value="Login" name="submit_button"
+            input type="submit" value="Create user" name="submit_button"    
     body
-        h1 Buy n' Sell
+        
         ==yield
