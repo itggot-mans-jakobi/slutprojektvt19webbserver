@@ -8,7 +8,7 @@ require_relative "functions.rb"
 enable :sessions    
 
 get("/") do
-    # result = call_db()
+    # result = call_db_table()
 
     slim(:index)
 end
@@ -31,5 +31,6 @@ post("/user_login") do
             user_create(username, password)
         end
     end
-    redirekt("/")
+    redirect("/")
+    
 end

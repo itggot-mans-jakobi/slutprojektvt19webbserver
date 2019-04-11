@@ -15,15 +15,17 @@ html lang="en"
                 input type="submit" value="logout" 
             br  
         / -else
+        / session[:user] = username
+                    /loggin form
 
-            /loggin form
-        form action="/user_login" method="POST"
-            input type="text" placeholder="Username" name="username"
-            br
-            input type="text" placeholder="Password" name="password"
-            br
-            input type="submit" value="Login" name="submit_button"
-            input type="submit" value="Create user" name="submit_button"    
     body
-        
+        p Wellcome back #{session[:user]}
+        -if session[:logged_in] != true
+            form action="/user_login" method="POST"
+                input type="text" placeholder="Username" name="username"
+                br
+                input type="text" placeholder="Password" name="password"
+                br
+                input type="submit" value="Login" name="submit_button"
+                input type="submit" value="Create user" name="submit_button"    
         ==yield
