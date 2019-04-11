@@ -8,29 +8,41 @@ require_relative "functions.rb"
 enable :sessions    
 
 get("/") do
-    # result = call_db_table()
+
+    session[:adverts_main] = call_db_table("adverts")
 
     slim(:index)
 end
 
-post("/user_login") do
-    username = params["username"]
-    password = params["password"]
+get("/profile") do
 
-            #user login 
-    if params["submit_button"] == "Login"
-        if password_test(username, password) == true
-            session[:logged_in] = true
-            session[:user] = username
-            
-            redirect("/")
-        end
-    elsif
-            #Create user
-        if params["submit_button"] == "Create user"
-            user_create(username, password)
+    slim(:profile)
+end
+
+get("/:username") do
+
+    slim(:profile)
+end
+
+post("/user_login") do
+    username = params["username1"]
+    password = params["password"]
+    
+    if password != nil 
+                #user login 
+        if params["submit_button"] == "Login"
+            if password_test(username, password) == true
+                session[:logged_in] = true
+                session[:user] = username
+                
+                redirect("/")
+            end
+        elsif
+                #Create user
+            if params["submit_button"] == "Create user"
+                user_create(username, password)
+            end
         end
     end
     redirect("/")
-    
 end

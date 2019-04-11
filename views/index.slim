@@ -1,1 +1,9 @@
 p currentpage: index
+a href="/profile" h1 profile 
+
+-session[:adverts_main].sort_by { |e| -e[0] }.each do |element|
+    article 
+        p #{element["AdUsername"]}
+        / p #{element["AdPicture"]}
+        / img src="" alt="adpicture"
+        p #{element["AdText"]}
