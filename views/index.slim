@@ -1,9 +1,12 @@
 p currentpage: index
-a href="/profile" h1 profile 
+a href="/#{session[:user]}" profile 
 
--session[:adverts_main].sort_by { |e| -e[0] }.each do |element|
-    article 
-        p #{element["AdUsername"]}
-        / p #{element["AdPicture"]}
-        / img src="" alt="adpicture"
-        p #{element["AdText"]}
+
+- var = call_db_table("adverts")
+-var.reverse.each do |element|
+     article 
+        -if element != 0
+            p Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+            p #{element["AdText"]}
+            p #{element["AdPicture"]}
+            br

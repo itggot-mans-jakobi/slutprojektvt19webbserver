@@ -14,19 +14,20 @@ get("/") do
     slim(:index)
 end
 
-get("/profile") do
+# get("/profile") do
 
-    slim(:profile)
-end
+#     slim(:profile)
+# end
 
-get("/:username") do
+get("/:user") do
+    session[:view_user] = params["user"]
 
     slim(:profile)
 end
 
 post("/user_login") do
-    username = params["username1"]
-    password = params["password"]
+    username = params["username"]
+    password = params["password1"]
     
     if password != nil 
                 #user login 
@@ -37,7 +38,7 @@ post("/user_login") do
                 
                 redirect("/")
             end
-        elsif
+        else
                 #Create user
             if params["submit_button"] == "Create user"
                 user_create(username, password)
@@ -45,4 +46,12 @@ post("/user_login") do
         end
     end
     redirect("/")
+end
+
+post("/ad_new") do
+    adtext = params["adtext"]
+    if adtext != ""
+        ad_create(session[:user],adtext , params["adpicture"])
+    end
+    redirect("/#{session[:user]}")
 end

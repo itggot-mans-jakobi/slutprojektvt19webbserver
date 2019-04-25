@@ -1,1 +1,29 @@
 p currentpage: profile
+
+-if session[:logged_in] == true
+    p #{session[:user]}
+-if session[:view_user] == session[:user] && session[:logged_in] == true
+    form action="/ad_new" method="POST"
+        textarea name="adtext" cols="30" rows="5" placeholder="What are we selling today"
+        br
+        textarea name="adpicture" cols="30" rows="1" placeholder="paste img here"
+        br
+        input type="submit" value="add the ad" name="submit"
+
+/     h2 All your posts:
+/ -else 
+/     p #{locals[:username_viev]}'s userpage
+/     p All #{locals[:username_viev]}'s posts:
+
+
+/ ads display after desendin id
+- var = call_db_table("adverts")
+/ p #{var}
+-var.reverse.each do |element|
+     article 
+        -if element != 0
+            -if element["AdUsername"] == session[:view_user]
+                p Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                p #{element["AdText"]}
+                p #{element["AdPicture"]}
+                br
