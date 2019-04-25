@@ -21,6 +21,7 @@ html lang="en"
     body
         p Wellcome back #{session[:user]}
         -if session[:logged_in] != true
+            h3 Loggin
             form action="/user_login" method="POST"
                 input type="text" placeholder="Username" name="username"
                 br
@@ -30,4 +31,5 @@ html lang="en"
                 / br
                 input type="submit" value="Login" name="submit_button"
                 input type="submit" value="Create user" name="submit_button"    
+
         ==yield

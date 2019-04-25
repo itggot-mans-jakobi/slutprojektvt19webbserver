@@ -9,11 +9,10 @@ p currentpage: profile
         textarea name="adpicture" cols="30" rows="1" placeholder="paste img here"
         br
         input type="submit" value="add the ad" name="submit"
-
-/     h2 All your posts:
-/ -else 
-/     p #{locals[:username_viev]}'s userpage
-/     p All #{locals[:username_viev]}'s posts:
+    h2 All your posts:
+-else 
+    p #{session[:view_user]}'s userpage
+    p All #{session[:view_user]]}'s posts:
 
 
 / ads display after desendin id
@@ -27,3 +26,5 @@ p currentpage: profile
                 p #{element["AdText"]}
                 p #{element["AdPicture"]}
                 br
+
+

@@ -2,7 +2,7 @@ p currentpage: index
 a href="/#{session[:user]}" profile 
 
 
-- var = call_db_table("adverts")
+-var = call_db_table("adverts")
 -var.reverse.each do |element|
      article 
         -if element != 0
@@ -10,3 +10,4 @@ a href="/#{session[:user]}" profile
             p #{element["AdText"]}
             p #{element["AdPicture"]}
             br
+            
