@@ -8,21 +8,25 @@ require_relative "functions.rb"
 enable :sessions    
 
 get("/") do
-
+    if session[:sort_keyword] == nil
+        session[:sort_keyword] = "all"
+    end
     session[:adverts_main] = call_db_table("adverts")
 
     slim(:index)
 end
 
-# get("/profile") do
-
-#     slim(:profile)
-# end
-
-get("/:user") do
+get("/profile/:user") do
+    if session[:logged_in] != true || params["user"] == "?"
+        redirect("/")
+    end
     session[:view_user] = params["user"]
 
     slim(:profile)
+end
+
+get("/profile/?") do
+    slim(:index)
 end
 
 post("/user_login") do
@@ -49,9 +53,18 @@ post("/user_login") do
 end
 
 post("/ad_new") do
-    adtext = params["adtext"]
+    adtext = params["adtext"] 
     if adtext != ""
-        ad_create(session[:user],adtext , params["adpicture"])
+        ad_create(session[:user],adtext , params["adpicture"], params["keyword"])
     end
-    redirect("/#{session[:user]}")
+    redirect("/profile/#{session[:user]}")
+end
+
+post("/main_sort") do
+    session[:sort_keyword] = params["keyword"]
+    if params["pagename"] == "profile"
+        redirect("/profile/#{session[:view_user]}")
+    else
+        redirect("/")
+    end
 end

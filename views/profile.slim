@@ -1,4 +1,4 @@
-p currentpage: profile
+h2 Profilepage
 
 -if session[:logged_in] == true
     p #{session[:user]}
@@ -8,23 +8,58 @@ p currentpage: profile
         br
         textarea name="adpicture" cols="30" rows="1" placeholder="paste img here"
         br
+        <input type="radio" name="keyword" value="Sell" checked> Selling
+        input type="radio" name="keyword" value="Buy" Buying
+        br
         input type="submit" value="add the ad" name="submit"
     h2 All your posts:
 -else 
     p #{session[:view_user]}'s userpage
-    p All #{session[:view_user]]}'s posts:
+    p All #{session[:view_user]}'s posts:
+
+h3 Sort by:
+form action="/main_sort" method="POST"    
+    input type="hidden" value="profile" name="pagename"
+    input type="submit" value="buy" name="keyword"
+    input type="submit" value="sell" name="keyword"
+    input type="submit" value="all" name="keyword"
+    
+h4 Currently sorted by #{session[:sort_keyword]}
 
 
-/ ads display after desendin id
-- var = call_db_table("adverts")
-/ p #{var}
+-var = call_db_table("adverts")
 -var.reverse.each do |element|
      article 
         -if element != 0
-            -if element["AdUsername"] == session[:view_user]
-                p Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
-                p #{element["AdText"]}
-                p #{element["AdPicture"]}
+            -if session[:sort_keyword] == "all" || session[:sort_keyword] == nil
+                -if element["AdUsername"] == session[:view_user]
+                    h3 -------------------------------------                 
+                    h3 Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                    h3 #{element["AdKeyword"]}
+                    h3 #{element["AdText"]}
+                    h3 #{element["AdPicture"]}
+                    br
+            -elsif element["AdKeyword"] == session[:sort_keyword].capitalize && element["AdUsername"] == session[:view_user]
+                h3 ------------------------------------- 
+                / ^h3 only used for formating
+                h3 Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                h3 #{element["AdKeyword"]}
+                h3 #{element["AdText"]}
+                h3 #{element["AdPicture"]}
                 br
+
+
+/ / ads display after desendin id
+/ - var = call_db_table("adverts")
+/ / p #{var}
+/ -var.reverse.each do |element|
+/      article 
+/         -if element != 0
+/             -if element["AdUsername"] == session[:view_user]
+/                 p Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+/                 p #{element["AdKeyword"]}
+/                 p #{element["AdText"]}
+/                 p #{element["AdPicture"]}
+/                 br
 
 

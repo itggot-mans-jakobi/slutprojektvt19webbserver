@@ -1,13 +1,39 @@
-p currentpage: index
-a href="/#{session[:user]}" profile 
+h2 Homepage
+form action="/profile/#{session[:user]}" method="GET"
+    input type="submit" value="Profile"
+
+/ a href="/profile/#{session[:user]}" profile 
+
+p ------------------------------------- 
+
+h3 Sort by:
+form action="/main_sort" method="POST"
+    input type="hidden" value="index" name="pagename"
+    input type="submit" value="buy" name="keyword"
+    input type="submit" value="sell" name="keyword"
+    input type="submit" value="all" name="keyword"
+h4 Currently sorted by #{session[:sort_keyword]}
 
 
 -var = call_db_table("adverts")
 -var.reverse.each do |element|
      article 
         -if element != 0
-            p Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
-            p #{element["AdText"]}
-            p #{element["AdPicture"]}
-            br
+            -if session[:sort_keyword] == "all" || session[:sort_keyword] == nil
+                h3 -------------------------------------                 
+                h3 Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                h3 #{element["AdKeyword"]}
+                h3 #{element["AdText"]}
+                h3 #{element["AdPicture"]}
+                br
+            -elsif element["AdKeyword"] == session[:sort_keyword].capitalize
+                h3 ------------------------------------- 
+                / ^h3 only used for formating
+                h3 Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                h3 #{element["AdKeyword"]}
+                h3 #{element["AdText"]}
+                h3 #{element["AdPicture"]}
+                br
+
+
             

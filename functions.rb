@@ -49,9 +49,9 @@ def user_create(username, password)
     end
 end
 
-def ad_create(adusername, adtext, adpicture)
+def ad_create(adusername, adtext, adpicture, adkeyword)
     db = call_db()
-    db.execute("INSERT INTO adverts (AdUsername, AdText, AdPicture) VALUES (?,?,?)", adusername, adtext, adpicture)
+    db.execute("INSERT INTO adverts (AdUsername, AdText, AdPicture, AdKeyword) VALUES (?,?,?,?)", adusername, adtext, adpicture, adkeyword)
 end
 
 def ads_load_specific()
