@@ -7,6 +7,12 @@ require_relative "functions.rb"
 
 enable :sessions    
 
+# before do
+#     # if session[:logged_in] != true
+#     #     redirect("/")
+#     # end
+# end
+
 get("/") do
     if session[:sort_keyword] == nil
         session[:sort_keyword] = "all"
@@ -46,6 +52,7 @@ post("/user_login") do
                 #Create user
             if params["submit_button"] == "Create user"
                 user_create(username, password)
+
             end
         end
     end
@@ -67,4 +74,15 @@ post("/main_sort") do
     else
         redirect("/")
     end
+end
+
+get("/post/:postid") do
+    session[:view_post] = params["postid"]
+
+    slim(:advert)
+end
+
+post("/bid") do
+    bid(session[:user], session[:view_post], params["quantity"])
+    redirect("/")
 end

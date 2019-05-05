@@ -34,19 +34,21 @@ h4 Currently sorted by #{session[:sort_keyword]}
             -if session[:sort_keyword] == "all" || session[:sort_keyword] == nil
                 -if element["AdUsername"] == session[:view_user]
                     h3 -------------------------------------                 
-                    h3 Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                    h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                     h3 #{element["AdKeyword"]}
                     h3 #{element["AdText"]}
                     h3 #{element["AdPicture"]}
-                    br
+                    form action="/post/#{element["AdId"]}" method="get"
+                        input type="submit" value="to advert"
             -elsif element["AdKeyword"] == session[:sort_keyword].capitalize && element["AdUsername"] == session[:view_user]
                 h3 ------------------------------------- 
                 / ^h3 only used for formating
-                h3 Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                 h3 #{element["AdKeyword"]}
                 h3 #{element["AdText"]}
                 h3 #{element["AdPicture"]}
-                br
+                form action="/post/#{element["AdId"]}" method="get"
+                    input type="submit" value="to advert"
 
 
 / / ads display after desendin id

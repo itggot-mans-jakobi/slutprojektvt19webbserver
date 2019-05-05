@@ -19,7 +19,7 @@ html lang="en"
                     /loggin form
 
     body
-        p Wellcome back #{session[:user]}
+        p Logged in as #{session[:user]}
         -if session[:logged_in] != true
             h3 Loggin
             form action="/user_login" method="POST"

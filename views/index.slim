@@ -1,10 +1,7 @@
 h2 Homepage
+p #{session[:logged_in]}
 form action="/profile/#{session[:user]}" method="GET"
     input type="submit" value="Profile"
-
-/ a href="/profile/#{session[:user]}" profile 
-
-p ------------------------------------- 
 
 h3 Sort by:
 form action="/main_sort" method="POST"
@@ -15,25 +12,33 @@ form action="/main_sort" method="POST"
 h4 Currently sorted by #{session[:sort_keyword]}
 
 
+
 -var = call_db_table("adverts")
 -var.reverse.each do |element|
-     article 
+     article
         -if element != 0
             -if session[:sort_keyword] == "all" || session[:sort_keyword] == nil
                 h3 -------------------------------------                 
-                h3 Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                 h3 #{element["AdKeyword"]}
                 h3 #{element["AdText"]}
                 h3 #{element["AdPicture"]}
-                br
+                form action="/post/#{element["AdId"]}" method="get"
+                    input type="submit" value="to advert"
+
             -elsif element["AdKeyword"] == session[:sort_keyword].capitalize
                 h3 ------------------------------------- 
                 / ^h3 only used for formating
-                h3 Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
-                h3 #{element["AdKeyword"]}
+                h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                br
+                if #{element["AdKeyword"]} == "Sell"
+                    form action="/post/#{element["AdId"]}" method="get"
+                        input type="submit" value="bid"
                 h3 #{element["AdText"]}
                 h3 #{element["AdPicture"]}
-                br
+                form action="/post/#{element["AdId"]}" method="get"
+                    input type="submit" value="to advert"
+                
 
 
             

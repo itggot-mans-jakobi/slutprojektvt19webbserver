@@ -1,4 +1,48 @@
 h2 Advertpage
 
-if keyword == sell displaye stuff
-else
+-advert = call_db_table_specifik("adverts", session[:view_post])
+-bid_history = call_db_table("auctions")
+-largest_bid = 0
+-bid_history.each do |element|
+    article
+        -if element != 0
+            -if element["IdAd"] == session[:view_post]
+                -if element["Bid"].to_i > largest_bid.to_i
+                    -largest_bid = element["Bid"]
+
+-bid_minimum = largest_bid.to_i + 1
+-advert.each do |element|
+    article 
+        -if element != 0
+            -if element["AdId"] == session[:view_post] 
+                h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                h3 #{element["AdKeyword"]}
+                h3 #{element["AdText"]}
+                h3 #{element["AdPicture"]}
+                -if element["AdKeyword"] == "Sell" 
+                    form action="/bid" method="POST"
+                        input type="number" name="quantity" min=bid_minimum max="1000000" placeholder=bid_minimum
+                        input type="submit" value="Bid"
+                    h3 Largest bid: #{largest_bid}
+                    
+                    -bid_history.each do |element|
+                        article 
+                            -if element != 0
+                                -if element["IdAd"] == session[:view_post] 
+                                    p --------------------
+                                    h3 Bid by <a href="/profile/#{get_name_from_userid(element["IdUsername"])}"> #{get_name_from_userid(element["IdUsername"])}</a>
+                                    h3 Amount: #{element["Bid"]}
+                -else element["AdKeyword"] == "buy" 
+                    form action="/profile/#{element["AdUsername"]}" method="GET"
+                        input type="submit" value="Profile"
+
+
+/ else sell stuff without auction
+
+/ auction
+/ thing selling
+/ selling persons profilepage
+/ highest/current bid
+/ biding person
+
+

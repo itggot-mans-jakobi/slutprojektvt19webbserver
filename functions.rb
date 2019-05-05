@@ -15,6 +15,12 @@ def call_db_table(table)
     return db.execute("SELECT * FROM #{table}")
 end
 
+def call_db_table_specifik(table, item)
+    db = call_db()
+
+    return db.execute("SELECT AdId, AdUsername, Adtext, AdPicture, AdKeyword FROM adverts WHERE AdId = #{item}")
+end
+
 #test om lösenord stämmer
 def password_test(username, password)
     if password != ""    
@@ -54,6 +60,25 @@ def ad_create(adusername, adtext, adpicture, adkeyword)
     db.execute("INSERT INTO adverts (AdUsername, AdText, AdPicture, AdKeyword) VALUES (?,?,?,?)", adusername, adtext, adpicture, adkeyword)
 end
 
-def ads_load_specific()
+def get_userid_from_name(username)
+    db = call_db()
 
+    id = db.execute("SELECT (UserId) FROM users WHERE Username = ?", username).first["UserId"]
+   
+    return id
 end
+
+def get_name_from_userid(userid)
+    db = call_db()
+
+    id = db.execute("SELECT (Username) FROM users WHERE UserId = ?", userid).first["Username"]
+   
+    return id
+end
+
+def bid(username, idad, bid)
+    db = call_db()
+    id = get_userid_from_name(username)
+    db.execute("INSERT INTO auctions (IdUsername, IdAd, bid) VALUES (?,?,?)", id, idad, bid)
+end
+
