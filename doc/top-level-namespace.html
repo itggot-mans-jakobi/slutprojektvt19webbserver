@@ -128,8 +128,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>before do     # if <a href=":logged_in">session</a> != true     #    
-redirect(“/”)     # end end.</p>
+<p>Displays Landing Page.</p>
 </div></span>
   
 </li>
@@ -152,7 +151,9 @@ redirect(“/”)     # end end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Displays a specific advert.</p>
+</div></span>
   
 </li>
 
@@ -174,7 +175,9 @@ redirect(“/”)     # end end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Displays the landingpage if the sought after username is “?”.</p>
+</div></span>
   
 </li>
 
@@ -196,7 +199,9 @@ redirect(“/”)     # end end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Displays all adverts by a particular user.</p>
+</div></span>
   
 </li>
 
@@ -218,7 +223,9 @@ redirect(“/”)     # end end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new advert if the advert contains characters.</p>
+</div></span>
   
 </li>
 
@@ -240,7 +247,9 @@ redirect(“/”)     # end end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a bid on a specific advert and redirects to “/”.</p>
+</div></span>
   
 </li>
 
@@ -262,7 +271,10 @@ redirect(“/”)     # end end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Sorts the adverts displayed by keywords and redirects to ether “/” or
+“/profile/#:view_user”.</p>
+</div></span>
   
 </li>
 
@@ -284,7 +296,10 @@ redirect(“/”)     # end end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Checks if a password of a user is the same as in the database and creates a
+user if the username is not taken and redirects to “/” .</p>
+</div></span>
   
 </li>
 
@@ -321,14 +336,9 @@ redirect(“/”)     # end end.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>before do</p>
+<p>Displays Landing Page</p>
 
-<pre class="code ruby"><code class="ruby"><span class='comment'># if session[:logged_in] != true
-</span><span class='comment'>#     redirect(&quot;/&quot;)
-</span><span class='comment'># end
-</span></code></pre>
-
-<p>end</p>
+<pre class="code ruby"><code class="ruby">@see Model#call_db_table</code></pre>
 
 
   </div>
@@ -344,17 +354,17 @@ redirect(“/”)     # end end.</p>
       <pre class="lines">
 
 
+14
+15
 16
 17
 18
 19
 20
-21
-22
-23</pre>
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 14</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:sort_keyword</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>nil</span>
@@ -378,20 +388,35 @@ redirect(“/”)     # end end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays a specific advert</p>
+
+<pre class="code ruby"><code class="ruby">@params [String] postid, The id of a specific advert</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-79
-80
-81
-82
-83</pre>
+104
+105
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 104</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/post/:postid</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:view_post</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>postid</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
@@ -412,18 +437,31 @@ redirect(“/”)     # end end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays the landingpage if the sought after username is “?”</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-34
-35
-36</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 37</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/profile/?</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:index</span><span class='rparen'>)</span>
@@ -442,23 +480,38 @@ redirect(“/”)     # end end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays all adverts by a particular user</p>
+
+<pre class="code ruby"><code class="ruby">@params [String] user, The username of a user</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-25
 26
 27
 28
 29
 30
 31
-32</pre>
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 26</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/profile/:user</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:logged_in</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='kw'>true</span> <span class='op'>||</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>?</span><span class='tstring_end'>&quot;</span></span>
@@ -482,22 +535,41 @@ redirect(“/”)     # end end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new advert if the advert contains characters</p>
+
+<pre class="code ruby"><code class="ruby">@params [String] adtext, The text of the advert
+@params [String] adpicture, The picture of the advert
+@params [String] keyword, The keyword of the advert
+
+@see Model#ad_create</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-62
-63
-64
-65
-66
-67
-68</pre>
+80
+81
+82
+83
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 80</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/ad_new</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_adtext'>adtext</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>adtext</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> 
@@ -520,19 +592,36 @@ redirect(“/”)     # end end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a bid on a specific advert and redirects to “/”</p>
+
+<pre class="code ruby"><code class="ruby">@params [String] quantity, The value of the bid
+
+@see Model#bid</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-85
-86
-87
-88</pre>
+115
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 115</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/bid</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_bid'><span class='object_link'><a href="MyModule.html#bid-instance_method" title="MyModule#bid (method)">bid</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:view_post</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>quantity</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -552,23 +641,40 @@ redirect(“/”)     # end end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sorts the adverts displayed by keywords and redirects to ether “/” or
+“/profile/#:view_user”</p>
+
+<pre class="code ruby"><code class="ruby">@params [String] keyword, The keyword of the advert
+@params [String] pagename, The pagename of the page direkts back to the right page</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-70
-71
-72
-73
-74
-75
-76
-77</pre>
+92
+93
+94
+95
+96
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 92</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/main_sort</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:sort_keyword</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>keyword</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
@@ -592,23 +698,33 @@ redirect(“/”)     # end end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Checks if a password of a user is the same as in the database and creates a
+user if the username is not taken and redirects to “/”</p>
+
+<pre class="code ruby"><code class="ruby">@params [String] username, The inputed username of a user
+@params [String] password1, The inputed password of a user
+@params [String] submit_button, Differentiate between &quot;Login&quot; or &quot;create user&quot; 
+
+@see Model#password_test
+@see Model#user_create</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
 49
 50
 51
@@ -620,10 +736,21 @@ redirect(“/”)     # end end.</p>
 57
 58
 59
-60</pre>
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 49</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/user_login</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
@@ -658,7 +785,7 @@ redirect(“/”)     # end end.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu May  9 09:39:44 2019 by
+  Generated on Thu May  9 10:42:43 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.4.2).
 </div>

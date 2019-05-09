@@ -326,13 +326,13 @@
       <pre class="lines">
 
 
-59
-60
 61
-62</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ad_create'>ad_create</span><span class='lparen'>(</span><span class='id identifier rubyid_adusername'>adusername</span><span class='comma'>,</span> <span class='id identifier rubyid_adtext'>adtext</span><span class='comma'>,</span> <span class='id identifier rubyid_adpicture'>adpicture</span><span class='comma'>,</span> <span class='id identifier rubyid_adkeyword'>adkeyword</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_call_db'><span class='object_link'><a href="#call_db-instance_method" title="MyModule#call_db (method)">call_db</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -358,14 +358,14 @@
       <pre class="lines">
 
 
-80
-81
 82
 83
-84</pre>
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bid'>bid</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_idad'>idad</span><span class='comma'>,</span> <span class='id identifier rubyid_bid'>bid</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_call_db'><span class='object_link'><a href="#call_db-instance_method" title="MyModule#call_db (method)">call_db</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -392,14 +392,14 @@
       <pre class="lines">
 
 
-6
-7
 8
 9
-10</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call_db'>call_db</span><span class='lparen'>(</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>db/database.db</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -439,14 +439,14 @@
       <pre class="lines">
 
 
-13
-14
 15
 16
-17</pre>
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call_db_table'>call_db_table</span><span class='lparen'>(</span><span class='id identifier rubyid_table'>table</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_call_db'><span class='object_link'><a href="#call_db-instance_method" title="MyModule#call_db (method)">call_db</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -473,14 +473,14 @@
       <pre class="lines">
 
 
-19
-20
 21
 22
-23</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call_db_table_specifik'>call_db_table_specifik</span><span class='lparen'>(</span><span class='id identifier rubyid_table'>table</span><span class='comma'>,</span> <span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_call_db'><span class='object_link'><a href="#call_db-instance_method" title="MyModule#call_db (method)">call_db</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -507,16 +507,16 @@
       <pre class="lines">
 
 
-72
-73
 74
 75
 76
 77
-78</pre>
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_name_from_userid'>get_name_from_userid</span><span class='lparen'>(</span><span class='id identifier rubyid_userid'>userid</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_call_db'><span class='object_link'><a href="#call_db-instance_method" title="MyModule#call_db (method)">call_db</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -545,16 +545,16 @@
       <pre class="lines">
 
 
-64
-65
 66
 67
 68
 69
-70</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_userid_from_name'>get_userid_from_name</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_call_db'><span class='object_link'><a href="#call_db-instance_method" title="MyModule#call_db (method)">call_db</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -596,8 +596,6 @@
       <pre class="lines">
 
 
-26
-27
 28
 29
 30
@@ -613,10 +611,12 @@
 40
 41
 42
-43</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_password_test'>password_test</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_password'>password</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>    
@@ -656,8 +656,6 @@
       <pre class="lines">
 
 
-45
-46
 47
 48
 49
@@ -668,10 +666,12 @@
 54
 55
 56
-57</pre>
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_create'>user_create</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
     <span class='comment'># p username
@@ -696,7 +696,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu May  9 09:39:44 2019 by
+  Generated on Thu May  9 10:42:44 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.4.2).
 </div>

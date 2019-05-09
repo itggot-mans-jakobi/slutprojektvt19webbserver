@@ -1,8 +1,10 @@
 require "bcrypt"
 require "sqlite3"
 
+enable :sessions   
+
 module MyModule
-    enable :sessions   
+
     def call_db()
         db = SQLite3::Database.new("db/database.db")
         db.results_as_hash = true 
