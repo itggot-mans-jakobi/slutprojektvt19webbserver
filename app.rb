@@ -2,8 +2,8 @@ require "sinatra"
 require "slim"
 require "sqlite3"
 require "bcrypt"
-require_relative "functions.rb"
-# require_relative ""
+require_relative "model.rb"
+include MyModule
 
 enable :sessions    
 
