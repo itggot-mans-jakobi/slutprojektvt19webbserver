@@ -1,7 +1,6 @@
 require "bcrypt"
 require "sqlite3"
 
-enable :sessions   
 
 module MyModule
 
@@ -26,21 +25,13 @@ module MyModule
 
     #test om lösenord stämmer
     def password_test(username, password)
-        if password != ""    
-            db = call_db()
-            result_password = db.execute("SELECT Password FROM users WHERE Username = ?", username)
-            # p result_password.first["password"]
-
-            if BCrypt::Password.new(result_password.first["Password"]) == password
-                status = true
-                session[:logged_in] = true
-            else 
-                status = false
-                session[:logged_in] = false
-            end
-        else 
-            status = false
+        db = call_db()
+        result_password = db.execute("SELECT Password FROM users WHERE Username = ?", username)
+        status = false
+        if BCrypt::Password.new(result_password.first["Password"]) == password
+            status = true
         end
+        p status
         return status
     end
 
@@ -49,13 +40,22 @@ module MyModule
         # p password
         db = call_db()
         hashat_password = BCrypt::Password.create(password)
-
-        if username != db.execute("SELECT (Username) FROM users WHERE Username = ?", username)
+        
+        status = false
+        if user_exist(username) != true
+            status = true
             result = db.execute("INSERT INTO users (Username, Password) VALUES (?, ?)", username, hashat_password)        
-            
-            session[:logged_in] = true
-            session[:user] = username
         end
+        return status
+    end
+
+    def user_exist(username)
+        db = call_db()
+        status = false
+        if username != db.execute("SELECT (Username) FROM users WHERE Username = ?", username)
+            status = true
+        end
+        return status
     end
 
     def ad_create(adusername, adtext, adpicture, adkeyword)

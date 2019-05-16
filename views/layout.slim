@@ -19,6 +19,12 @@ html lang="en"
                     /loggin form
 
     body
+        / debugging
+        p debugg1: #{session[:logged_in]}
+        p debugg2: #{session[:user]}
+        / p debugg2: #{call_db("users")}
+
+
         p Logged in as #{session[:user]}
         -if session[:logged_in] != true
             h3 Loggin
