@@ -31,9 +31,8 @@ h4 Currently sorted by #{session[:sort_keyword]}
                 / ^h3 only used for formating
                 h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                 br
-                if #{element["AdKeyword"]} == "Sell"
-                    form action="/post/#{element["AdId"]}" method="get"
-                        input type="submit" value="bid"
+                h3 #{element["AdKeyword"]}
+                    
                 h3 #{element["AdText"]}
                 h3 #{element["AdPicture"]}
                 form action="/post/#{element["AdId"]}" method="get"

@@ -1,1 +1,6 @@
 h2 error site
+
+h2 current error:
+-if session[:errorCode] == nil
+    -session[:errorCode] = "no current errorcode"
+h1 #{session[:errorCode]}
