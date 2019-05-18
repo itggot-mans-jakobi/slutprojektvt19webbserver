@@ -9,33 +9,39 @@ html lang="en"
     header
         h1 
             a href="/" Buy n' Sell
-        / -if session[:logged_in] == true
-            h3 welcome back #{session[:user]}
-            form action="/user_logout" method="POST"
-                input type="submit" value="logout" 
-            br  
-        / -else
-        / session[:user] = username
-                    /loggin form
 
     body
-        / debugging
-        / p debugg1: #{session[:logged_in]}
-        / p debugg2: #{session[:user]}
-        / p debugg2: #{call_db("users")}
-
 
         p Logged in as #{session[:user]}
-        -if session[:logged_in] != true
+        -if session[:logged_in] != true && session[:keyword_switch] == nil
+            h3 Loggin
+            form action="/user_login" method="POST"
+                input type="text" placeholder="Username" name="username"
+                br
+                input type="text" placeholder="Password" name="password1"
+                input type="submit" value="Login" name="submit_button"
+            br
+            form action="/loggin_create_switch" method="POST"
+                input type="submit" value="Create an account" name="submit_button"    
+
+
+        
+        -elsif session[:logged_in] != true && session[:keyword_switch] = "create"
             h3 Loggin
             form action="/user_login" method="POST"
                 input type="text" placeholder="Username" name="username"
                 br
                 input type="text" placeholder="Password" name="password1"
                 br
-                / input type="text" placeholder="Password" name="password2"
-                / br
-                input type="submit" value="Login" name="submit_button"
+                input type="text" placeholder="Password" name="password2"
+                br
                 input type="submit" value="Create user" name="submit_button"    
+            br
+            form action="/loggin_create_switch" method="POST"
+                input type="submit" value="login" name="submit_button"    
+
+        -else 
+            form action="/logout" method="POST"
+                input type="submit" value="logout" name="submit_button"    
 
         ==yield

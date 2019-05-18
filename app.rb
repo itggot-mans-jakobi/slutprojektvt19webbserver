@@ -10,17 +10,6 @@ enable :sessions
 set :session_secret, "secret"
 
 
-
-
-# enable :sessions  
-# set :session_secret, "My session secret"
-
-# set :session_secret, "something"
-# set :session_secret, "328479283uf923fu8932fu923uf9832f23f232"
-
-
-# use Rack::Session::Cookie
-
 #   Displays Landing Page
 #
 #   @see Model#call_db_table
@@ -65,39 +54,46 @@ end
 post("/user_login") do
     username = params["username"]
     password = params["password1"]
-    # session[:logged_in] = "somenicetexttodebug"
-    # p session[:logged_in]
+    password2 = params["password2"]
 
     session[:user] = ""
     if password != nil && password != ""
+        if username != nil && password != ""
                 #user login 
-        if params["submit_button"] == "Login"
-            # p password_test(username, password)
-            session[:logged_in] = password_test(username, password)
-            if password_test(username, password) == true
-                session[:user] = username
-                p "debug 1"
-                redirect("/")
-            else
-                session[:errorCode] = "wrong password"
-            end
-        else
-                #Create user
-            if params["submit_button"] == "Create user"
-                if user_exist(username) != true
-                    session[:user] = username    
-                    result = user_create(username, password)
-                    p result
-                    session[:logged_in] = result
-                    redirect("/")
+            if params["submit_button"] == "Login"
+                # p password_test(username, password)
+                session[:logged_in] = password_test(username, password)
+                if password_test(username, password) == true
+                    # p session[:user] = username 
+                    session[:user] = username
+                    redirect back
+                   
                 else
-                    session[:errorCode] = "Username is unavailable or taken"
+                    session[:errorCode] = "wrong password"
+                end
+            else
+                    #Create user
+                if params["submit_button"] == "Create user"
+                    if password == password2
+
+                        if user_exist(username) == false
+                            session[:user] = username    
+                            result = user_create(username, password)
+                            session[:logged_in] = result
+                            redirect back
+                        else
+                            session[:errorCode] = "Username is unavailable"
+                        end
+                    else
+                        session[:errorCode] = "Password mismatch"
+                    end
                 end
             end
+        else
+            session[:errorCode] = "nothing is not a valid username"   
         end
-        
     else
-        session[:errorCode] = "nothing is not a valid username"    end
+        session[:errorCode] = "nothing is not a valid password"   
     end
     redirect("/error")
 end
@@ -127,11 +123,7 @@ end
 #   @params [String] pagename, The pagename of the page direkts back to the right page 
 post("/main_sort") do
     session[:sort_keyword] = params["keyword"]
-    if params["pagename"] == "profile"
-        redirect("/profile/#{session[:view_user]}")
-    else
-        redirect("/")
-    end
+    redirect back
 end
 
 #   Displays a specific advert
@@ -150,7 +142,7 @@ end
 #   @see Model#bid
 post("/bid") do
     bid(session[:user], session[:view_post], params["quantity"])
-    redirect("/")
+    redirect back
 end
 
 #   Displays an error code
@@ -159,5 +151,18 @@ get("/error") do
 
     slim(:error)
 end
+post("/logout") do
 
+    session.destroy
+    redirect back
+end
 
+post("/loggin_create_switch") do
+    if session[:keyword_switch] == nil
+        session[:keyword_switch] = "create"
+    else
+        session[:keyword_switch] = nil
+    end
+
+    redirect back
+end

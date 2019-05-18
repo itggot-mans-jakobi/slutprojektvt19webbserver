@@ -31,20 +31,19 @@ module MyModule
         if BCrypt::Password.new(result_password.first["Password"]) == password
             status = true
         end
-        p status
+       
         return status
     end
 
     def user_create(username, password)
-        # p username
-        # p password
         db = call_db()
         hashat_password = BCrypt::Password.create(password)
         
         status = false
-        if user_exist(username) != true
-            status = true
+        p user_exist(username)
+        if user_exist(username) == false
             result = db.execute("INSERT INTO users (Username, Password) VALUES (?, ?)", username, hashat_password)        
+            status = true
         end
         return status
     end
@@ -52,8 +51,11 @@ module MyModule
     def user_exist(username)
         db = call_db()
         status = false
-        if username != db.execute("SELECT (Username) FROM users WHERE Username = ?", username)
-            status = true
+        usernameFromDb = db.execute("SELECT (Username) FROM users WHERE Username = ?", username)
+        if usernameFromDb != []
+            if username == usernameFromDb.first["Username"]
+                status = true
+            end
         end
         return status
     end
@@ -65,7 +67,6 @@ module MyModule
 
     def get_userid_from_name(username)
         db = call_db()
-
         id = db.execute("SELECT (UserId) FROM users WHERE Username = ?", username).first["UserId"]
     
         return id
@@ -73,9 +74,7 @@ module MyModule
 
     def get_name_from_userid(userid)
         db = call_db()
-
         id = db.execute("SELECT (Username) FROM users WHERE UserId = ?", userid).first["Username"]
-    
         return id
     end
 
