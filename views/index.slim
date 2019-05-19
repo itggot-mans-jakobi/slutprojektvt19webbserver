@@ -1,4 +1,6 @@
-h2 Homepage
+/ debug
+p Homepage
+
 p #{session[:logged_in]}
 form action="/profile/#{session[:user]}" method="GET"
     input type="submit" value="Profile"
@@ -19,22 +21,23 @@ h4 Currently sorted by #{session[:sort_keyword]}
         -if element != 0
             -if session[:sort_keyword] == "all" || session[:sort_keyword] == nil
                 h3 -------------------------------------                 
+                -if element["AdPicture"] != ""
+                    img src=element["AdPicture"] alt="img/bild"         
                 h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                 h3 #{element["AdKeyword"]}
                 h3 #{element["AdText"]}
-                h3 #{element["AdPicture"]}
                 form action="/post/#{element["AdId"]}" method="get"
                     input type="submit" value="to advert"
 
             -elsif element["AdKeyword"] == session[:sort_keyword].capitalize
                 h3 ------------------------------------- 
                 / ^h3 only used for formating
+                -if element["AdPicture"] != ""
+                    img src=element["AdPicture"] alt="img/bild"         
                 h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                 br
                 h3 #{element["AdKeyword"]}
-                    
                 h3 #{element["AdText"]}
-                h3 #{element["AdPicture"]}
                 form action="/post/#{element["AdId"]}" method="get"
                     input type="submit" value="to advert"
                 

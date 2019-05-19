@@ -1,8 +1,10 @@
 require "bcrypt"
 require "sqlite3"
 
-
+# MyModule
+# @since 0.6.0
 module MyModule
+
     # Loads the database
     #
     # @return [Hash]
@@ -14,7 +16,7 @@ module MyModule
 
     # Finds a specific database table
     #
-    # @param [String] table, Name of table
+    # @param [String] table Name of table
     #
     # @return [Hash]
     def call_db_table(table)
@@ -25,8 +27,8 @@ module MyModule
 
     # Finds "AdId", "AdUsername", "Adtext", "AdPicture", "AdKeyword" in a database table named adverts with a specific "AdId"
     #
-    # @param [String] table, Name of table
-    # @param [String] item, Name of item
+    # @param [String] table Name of table
+    # @param [String] item Name of item
     #
     # @return [Hash]
     #   *"AdId" [String] the id
@@ -41,8 +43,8 @@ module MyModule
 
     # Attempts to compare the new password and the stored password
     #
-    # @param [String] username, username
-    # @param [String] password, password
+    # @param [String] username username
+    # @param [String] password password
     #
     # @return [false] if the passwords do not match
     # @return [true] if the passwords do match
@@ -60,8 +62,8 @@ module MyModule
 
     # Attempts to create a new user
     #
-    # @param [String] username, username
-    # @param [String] password, password
+    # @param [String] username username
+    # @param [String] password password
     #
     # @return [false] if the username exist
     # @return [true] if the user was created
@@ -78,7 +80,7 @@ module MyModule
 
     # Attempts to locate a user
     #
-    # @param [String] username, username
+    # @param [String] username username
     #
     # @return [false] if the user does not exist
     # @return [true] if the user exist
@@ -96,10 +98,10 @@ module MyModule
 
     # Creates an advert
     #
-    # @param [String] adusername, username
-    # @param [String] adtext, the text
-    # @param [String] adpicture, a picture
-    # @param [String] adkeyword, a keyword ("sell"/"buy")
+    # @param [String] adusername username
+    # @param [String] adtext the text
+    # @param [String] adpicture a picture
+    # @param [String] adkeyword a keyword ("sell"/"buy")
     def ad_create(adusername, adtext, adpicture, adkeyword)
         db = call_db()
         db.execute("INSERT INTO adverts (AdUsername, AdText, AdPicture, AdKeyword) VALUES (?,?,?,?)", adusername, adtext, adpicture, adkeyword)
@@ -107,7 +109,7 @@ module MyModule
 
     # Attempts to locate a userid by its username
     #
-    # @param [String] username, username
+    # @param [String] username username
     #
     # @return [String] id, userid
     def get_userid_from_name(username)
@@ -119,7 +121,7 @@ module MyModule
 
     # Attempts to locate a username by its userid
     #
-    # @param [String] userid, userid
+    # @param [String] userid userid
     #
     # @return [false] username
     def get_name_from_userid(userid)
@@ -130,9 +132,9 @@ module MyModule
     
     # Creates a bid
     #
-    # @param [String] username, username
-    # @param [String] idad, id of the ad
-    # @param [String] bid, biding amount
+    # @param [String] username username
+    # @param [String] idad id of the ad
+    # @param [String] bid biding amount
     def bid(username, idad, bid)
         db = call_db()
         id = get_userid_from_name(username)
@@ -141,9 +143,9 @@ module MyModule
 
     # Deletes a row from a database table 
     #
-    # @param [String] table, a table
-    # @param [String] field, a field
-    # @param [String] item, the item to identify a row    def delete(table, param, item)
+    # @param [String] table a table
+    # @param [String] field a field
+    # @param [String] item the item to identify a row    def delete(table, param, item)
     def delete(table, field, item)
         db = call_db()
         db.execute("DELETE FROM #{table} WHERE #{field} = ?", item)

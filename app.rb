@@ -65,6 +65,7 @@ post("/user_login") do
                     session[:logged_in] = password_test(username, password)
                     if password_test(username, password) == true
                         session[:user] = username
+                        session[:errorCode] = nil
                         redirect back
                     else
                         session[:errorCode] = "wrong password"
@@ -80,6 +81,7 @@ post("/user_login") do
                             session[:user] = username    
                             result = user_create(username, password)
                             session[:logged_in] = result
+                            session[:errorCode] = nil
                             redirect back
                         else
                             session[:errorCode] = "Username is unavailable"
@@ -107,8 +109,10 @@ end
 #   @see Model#ad_create
 post("/ad_new") do
     adtext = params["adtext"] 
+    adpicture = params["adpicture"]
+    adpicture = "/img/" + "#{adpicture}" + ".png"
     if adtext != ""
-        ad_create(session[:user],adtext , params["adpicture"], params["keyword"])
+        ad_create(session[:user] ,adtext ,adpicture , params["keyword"])
     else
         session[:errorCode] = "advert text is empty"
         redirect("/error")
@@ -169,11 +173,27 @@ post("/loggin_create_switch") do
     redirect back
 end
 
+#   Delete a row from a database table 
+#
+#   @params [String] table, The name of a table
+#   @params [String] field, The name of a field
+#   @params [String] item, An item
+#
+#   @see Model#delete
 post("/delete") do
     item = params["item"]
     delete(params["table"], params["field"], item)
-    session[:user].destroy   
-    session[:logged_in] = false
-
+    if "user" == params["delete"] 
+        var = call_db_table("adverts")
+        var.reverse.each do |element|
+            if element != 0
+                if element["AdUsername"] == session[:user]
+                    delete("adverts", "AdUsername", session[:user])
+                end
+            end 
+        end     
+        session[:user] = nil   
+        session[:logged_in] = false
+    end
     redirect back
 end

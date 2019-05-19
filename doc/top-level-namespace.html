@@ -137,6 +137,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="top-level-namespace.html#GET__error-instance_method" title="#GET /error (instance method)">#<strong>GET /error</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Displays an error message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="top-level-namespace.html#GET__post__postid-instance_method" title="#GET /post/:postid (instance method)">#<strong>GET /post/:postid</strong>  &#x21d2; Object </a>
     
 
@@ -200,7 +224,8 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Displays all adverts by a particular user.</p>
+<p>Displays all adverts by a particular user, and redirects to “/error” i an
+error occurs .</p>
 </div></span>
   
 </li>
@@ -224,7 +249,8 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Creates a new advert if the advert contains characters.</p>
+<p>Creates a new advert if the advert contains characters and redirects to
+“/error” i an error occurs.</p>
 </div></span>
   
 </li>
@@ -248,7 +274,80 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Creates a bid on a specific advert and redirects to “/”.</p>
+<p>Creates a bid on a specific advert and redirects back to te previus page.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="top-level-namespace.html#POST__delete-instance_method" title="#POST /delete (instance method)">#<strong>POST /delete</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Delete a row from a database table .</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="top-level-namespace.html#POST__loggin_create_switch-instance_method" title="#POST /loggin_create_switch (instance method)">#<strong>POST /loggin_create_switch</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Switches the current user create/loggin values and redirects back to te
+previus page.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="top-level-namespace.html#POST__logout-instance_method" title="#POST /logout (instance method)">#<strong>POST /logout</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Destroys the current session and redirects back to te previus page.</p>
 </div></span>
   
 </li>
@@ -272,8 +371,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Sorts the adverts displayed by keywords and redirects to ether “/” or
-“/profile/#:view_user”.</p>
+<p>Sorts the adverts displayed and redirects back to te previus page.</p>
 </div></span>
   
 </li>
@@ -298,7 +396,8 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Checks if a password of a user is the same as in the database and creates a
-user if the username is not taken and redirects to “/” .</p>
+user if the username is not taken redirects back to te previus page and
+redirects to “/error” i an error occurs .</p>
 </div></span>
   
 </li>
@@ -317,7 +416,7 @@ user if the username is not taken and redirects to “/” .</p>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="MyModule.html" title="MyModule (module)">MyModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="MyModule.html#ad_create-instance_method" title="MyModule#ad_create (method)">#ad_create</a></span>, <span class='object_link'><a href="MyModule.html#bid-instance_method" title="MyModule#bid (method)">#bid</a></span>, <span class='object_link'><a href="MyModule.html#call_db-instance_method" title="MyModule#call_db (method)">#call_db</a></span>, <span class='object_link'><a href="MyModule.html#call_db_table-instance_method" title="MyModule#call_db_table (method)">#call_db_table</a></span>, <span class='object_link'><a href="MyModule.html#call_db_table_specifik-instance_method" title="MyModule#call_db_table_specifik (method)">#call_db_table_specifik</a></span>, <span class='object_link'><a href="MyModule.html#get_name_from_userid-instance_method" title="MyModule#get_name_from_userid (method)">#get_name_from_userid</a></span>, <span class='object_link'><a href="MyModule.html#get_userid_from_name-instance_method" title="MyModule#get_userid_from_name (method)">#get_userid_from_name</a></span>, <span class='object_link'><a href="MyModule.html#password_test-instance_method" title="MyModule#password_test (method)">#password_test</a></span>, <span class='object_link'><a href="MyModule.html#user_create-instance_method" title="MyModule#user_create (method)">#user_create</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="MyModule.html#ad_create-instance_method" title="MyModule#ad_create (method)">#ad_create</a></span>, <span class='object_link'><a href="MyModule.html#bid-instance_method" title="MyModule#bid (method)">#bid</a></span>, <span class='object_link'><a href="MyModule.html#call_db-instance_method" title="MyModule#call_db (method)">#call_db</a></span>, <span class='object_link'><a href="MyModule.html#call_db_table-instance_method" title="MyModule#call_db_table (method)">#call_db_table</a></span>, <span class='object_link'><a href="MyModule.html#call_db_table_specifik-instance_method" title="MyModule#call_db_table_specifik (method)">#call_db_table_specifik</a></span>, <span class='object_link'><a href="MyModule.html#delete-instance_method" title="MyModule#delete (method)">#delete</a></span>, <span class='object_link'><a href="MyModule.html#get_name_from_userid-instance_method" title="MyModule#get_name_from_userid (method)">#get_name_from_userid</a></span>, <span class='object_link'><a href="MyModule.html#get_userid_from_name-instance_method" title="MyModule#get_userid_from_name (method)">#get_userid_from_name</a></span>, <span class='object_link'><a href="MyModule.html#password_test-instance_method" title="MyModule#password_test (method)">#password_test</a></span>, <span class='object_link'><a href="MyModule.html#user_create-instance_method" title="MyModule#user_create (method)">#user_create</a></span>, <span class='object_link'><a href="MyModule.html#user_exist-instance_method" title="MyModule#user_exist (method)">#user_exist</a></span></p>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -354,25 +453,68 @@ user if the username is not taken and redirects to “/” .</p>
       <pre class="lines">
 
 
-14
-15
 16
 17
 18
 19
 20
-21</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 16</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:sort_keyword</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>nil</span>
         <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:sort_keyword</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>all</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>end</span>
     <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:adverts_main</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_call_db_table'><span class='object_link'><a href="MyModule.html#call_db_table-instance_method" title="MyModule#call_db_table (method)">call_db_table</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>adverts</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-
+    
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:index</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GET__error-instance_method">
+  
+    #<strong>GET /error</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays an error message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app.rb', line 151</span>
+
+<span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/error</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:error</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -409,14 +551,14 @@ user if the username is not taken and redirects to “/” .</p>
       <pre class="lines">
 
 
-104
-105
-106
-107
-108</pre>
+133
+134
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 133</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/post/:postid</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:view_post</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>postid</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
@@ -456,12 +598,12 @@ user if the username is not taken and redirects to “/” .</p>
       <pre class="lines">
 
 
-37
-38
-39</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 40</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/profile/?</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:index</span><span class='rparen'>)</span>
@@ -483,7 +625,8 @@ user if the username is not taken and redirects to “/” .</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Displays all adverts by a particular user</p>
+<p>Displays all adverts by a particular user, and redirects to “/error” i an
+error occurs</p>
 
 <pre class="code ruby"><code class="ruby">@params [String] user, The username of a user</code></pre>
 
@@ -501,21 +644,23 @@ user if the username is not taken and redirects to “/” .</p>
       <pre class="lines">
 
 
-26
-27
 28
 29
 30
 31
 32
-33</pre>
+33
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 28</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/profile/:user</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:logged_in</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='kw'>true</span> <span class='op'>||</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>?</span><span class='tstring_end'>&quot;</span></span>
-        <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:errorCode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unauthorized access, please loggin</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/error</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
     <span class='kw'>end</span>
     <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:view_user</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
 
@@ -538,7 +683,8 @@ user if the username is not taken and redirects to “/” .</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Creates a new advert if the advert contains characters</p>
+<p>Creates a new advert if the advert contains characters and redirects to
+“/error” i an error occurs</p>
 
 <pre class="code ruby"><code class="ruby">@params [String] adtext, The text of the advert
 @params [String] adpicture, The picture of the advert
@@ -560,22 +706,30 @@ user if the username is not taken and redirects to “/” .</p>
       <pre class="lines">
 
 
-80
-81
-82
-83
-84
-85
-86</pre>
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 110</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/ad_new</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_adtext'>adtext</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>adtext</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> 
     <span class='kw'>if</span> <span class='id identifier rubyid_adtext'>adtext</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
         <span class='id identifier rubyid_ad_create'><span class='object_link'><a href="MyModule.html#ad_create-instance_method" title="MyModule#ad_create (method)">ad_create</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_adtext'>adtext</span> <span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>adpicture</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>keyword</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:errorCode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>advert text is empty</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/error</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
     <span class='kw'>end</span>
+    
     <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/profile/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -595,7 +749,7 @@ user if the username is not taken and redirects to “/” .</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Creates a bid on a specific advert and redirects to “/”</p>
+<p>Creates a bid on a specific advert and redirects back to te previus page</p>
 
 <pre class="code ruby"><code class="ruby">@params [String] quantity, The value of the bid
 
@@ -615,17 +769,177 @@ user if the username is not taken and redirects to “/” .</p>
       <pre class="lines">
 
 
-115
-116
-117
-118</pre>
+144
+145
+146
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 144</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/bid</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_bid'><span class='object_link'><a href="MyModule.html#bid-instance_method" title="MyModule#bid (method)">bid</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:view_post</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>quantity</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="POST__delete-instance_method">
+  
+    #<strong>POST /delete</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delete a row from a database table</p>
+
+<pre class="code ruby"><code class="ruby">@params [String] table, The name of a table
+@params [String] field, The name of a field
+@params [String] item, An item
+
+@see Model#delete</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181
+182
+183
+184
+185
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app.rb', line 181</span>
+
+<span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/delete</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_item'>item</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>item</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_delete'><span class='object_link'><a href="MyModule.html#delete-instance_method" title="MyModule#delete (method)">delete</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>table</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>field</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>   
+    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:logged_in</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>false</span>
+
+    <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="POST__loggin_create_switch-instance_method">
+  
+    #<strong>POST /loggin_create_switch</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Switches the current user create/loggin values and redirects back to te
+previus page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+164
+165
+166
+167
+168
+169
+170
+171
+172</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app.rb', line 164</span>
+
+<span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/loggin_create_switch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:keyword_switch</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>nil</span>
+        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:keyword_switch</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>create</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:keyword_switch</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="POST__logout-instance_method">
+  
+    #<strong>POST /logout</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Destroys the current session and redirects back to te previus page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+157
+158
+159
+160</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app.rb', line 157</span>
+
+<span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/logout</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
+    <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
+    <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -644,11 +958,9 @@ user if the username is not taken and redirects to “/” .</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Sorts the adverts displayed by keywords and redirects to ether “/” or
-“/profile/#:view_user”</p>
+<p>Sorts the adverts displayed and redirects back to te previus page</p>
 
-<pre class="code ruby"><code class="ruby">@params [String] keyword, The keyword of the advert
-@params [String] pagename, The pagename of the page direkts back to the right page</code></pre>
+<pre class="code ruby"><code class="ruby">@params [String] keyword, The keyword of the advert</code></pre>
 
 
   </div>
@@ -664,25 +976,17 @@ user if the username is not taken and redirects to “/” .</p>
       <pre class="lines">
 
 
-92
-93
-94
-95
-96
-97
-98
-99</pre>
+125
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 125</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/main_sort</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:sort_keyword</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>keyword</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pagename</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile</span><span class='tstring_end'>&quot;</span></span>
-        <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/profile/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:view_user</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='kw'>else</span>
-        <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+    <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -702,14 +1006,17 @@ user if the username is not taken and redirects to “/” .</p>
   <div class="discussion">
     
 <p>Checks if a password of a user is the same as in the database and creates a
-user if the username is not taken and redirects to “/”</p>
+user if the username is not taken redirects back to te previus page and
+redirects to “/error” i an error occurs</p>
 
 <pre class="code ruby"><code class="ruby">@params [String] username, The inputed username of a user
-@params [String] password1, The inputed password of a user
+@params [String] password1, The first inputed password of a user
+@params [String] password2, The second inputed password of a user
 @params [String] submit_button, Differentiate between &quot;Login&quot; or &quot;create user&quot; 
 
 @see Model#password_test
-@see Model#user_create</code></pre>
+@see Model#user_create
+@see Model#user_exist</code></pre>
 
 
   </div>
@@ -725,11 +1032,6 @@ user if the username is not taken and redirects to “/”</p>
       <pre class="lines">
 
 
-49
-50
-51
-52
-53
 54
 55
 56
@@ -747,33 +1049,88 @@ user if the username is not taken and redirects to “/”</p>
 68
 69
 70
-71</pre>
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 54</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/user_login</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_password'>password</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>password1</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    
-    <span class='kw'>if</span> <span class='id identifier rubyid_password'>password</span> <span class='op'>!=</span> <span class='kw'>nil</span> 
+    <span class='id identifier rubyid_password2'>password2</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>password2</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_password'>password</span> <span class='op'>!=</span> <span class='kw'>nil</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_password'>password</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_username'>username</span> <span class='op'>!=</span> <span class='kw'>nil</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_password'>password</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
                 <span class='comment'>#user login 
-</span>        <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>submit_button</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Login</span><span class='tstring_end'>&quot;</span></span>
-            <span class='kw'>if</span> <span class='id identifier rubyid_password_test'><span class='object_link'><a href="MyModule.html#password_test-instance_method" title="MyModule#password_test (method)">password_test</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>true</span>
-                <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:logged_in</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
-                <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_username'>username</span>
-                
-                <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</span>            <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>submit_button</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Login</span><span class='tstring_end'>&quot;</span></span>
+                <span class='kw'>if</span> <span class='id identifier rubyid_user_exist'><span class='object_link'><a href="MyModule.html#user_exist-instance_method" title="MyModule#user_exist (method)">user_exist</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>true</span>
+                    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:logged_in</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_password_test'><span class='object_link'><a href="MyModule.html#password_test-instance_method" title="MyModule#password_test (method)">password_test</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
+                    <span class='kw'>if</span> <span class='id identifier rubyid_password_test'><span class='object_link'><a href="MyModule.html#password_test-instance_method" title="MyModule#password_test (method)">password_test</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>true</span>
+                        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_username'>username</span>
+                        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:errorCode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>
+                        <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
+                    <span class='kw'>else</span>
+                        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:errorCode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wrong password</span><span class='tstring_end'>&quot;</span></span>
+                    <span class='kw'>end</span>
+                <span class='kw'>else</span>
+                    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:errorCode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>User does not exist</span><span class='tstring_end'>&quot;</span></span>   
+                <span class='kw'>end</span>
+            <span class='kw'>else</span>
+                    <span class='comment'>#Create user
+</span>                <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>submit_button</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Create user</span><span class='tstring_end'>&quot;</span></span>
+                    <span class='kw'>if</span> <span class='id identifier rubyid_password'>password</span> <span class='op'>==</span> <span class='id identifier rubyid_password2'>password2</span>
+                        <span class='kw'>if</span> <span class='id identifier rubyid_user_exist'><span class='object_link'><a href="MyModule.html#user_exist-instance_method" title="MyModule#user_exist (method)">user_exist</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span>
+                            <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_username'>username</span>    
+                            <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_user_create'><span class='object_link'><a href="MyModule.html#user_create-instance_method" title="MyModule#user_create (method)">user_create</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
+                            <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:logged_in</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_result'>result</span>
+                            <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:errorCode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>
+                            <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
+                        <span class='kw'>else</span>
+                            <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:errorCode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Username is unavailable</span><span class='tstring_end'>&quot;</span></span>
+                        <span class='kw'>end</span>
+                    <span class='kw'>else</span>
+                        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:errorCode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Password mismatch</span><span class='tstring_end'>&quot;</span></span>
+                    <span class='kw'>end</span>
+                <span class='kw'>end</span>
             <span class='kw'>end</span>
         <span class='kw'>else</span>
-                <span class='comment'>#Create user
-</span>            <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>submit_button</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Create user</span><span class='tstring_end'>&quot;</span></span>
-                <span class='id identifier rubyid_user_create'><span class='object_link'><a href="MyModule.html#user_create-instance_method" title="MyModule#user_create (method)">user_create</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
-
-            <span class='kw'>end</span>
+            <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:errorCode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nothing is not a valid username</span><span class='tstring_end'>&quot;</span></span>   
         <span class='kw'>end</span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:errorCode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nothing is not a valid password</span><span class='tstring_end'>&quot;</span></span>   
     <span class='kw'>end</span>
-    <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/error</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -785,7 +1142,7 @@ user if the username is not taken and redirects to “/”</p>
 </div>
 
       <div id="footer">
-  Generated on Thu May  9 10:42:43 2019 by
+  Generated on Sun May 19 19:52:37 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.4.2).
 </div>

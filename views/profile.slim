@@ -1,4 +1,5 @@
-h2 Profilepage
+/ debug
+p Profilepage
 
 -if session[:logged_in] == true
     p #{session[:user]}
@@ -34,34 +35,36 @@ h4 Currently sorted by #{session[:sort_keyword]}
             -if session[:sort_keyword] == "all" || session[:sort_keyword] == nil
                 -if element["AdUsername"] == session[:view_user]
                     h3 -------------------------------------                 
-                    h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                    -if element["AdPicture"] != ""
+                        img src="#{element["AdPicture"]}" alt="img/bild"
+                    -if session[:view_user] != session[:user]
+                        h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                     h3 #{element["AdKeyword"]}
                     h3 #{element["AdText"]}
-                    h3 #{element["AdPicture"]}
                     form action="/post/#{element["AdId"]}" method="get"
                         input type="submit" value="to advert"
+                    -if session[:view_user] == session[:user]
+                        br
+                        form action="/delete" method="POST"
+                            input type="hidden" value="adverts" name="table"
+                            input type="hidden" value="AdId" name="field"
+                            input type="hidden" value="#{element["AdId"]}" name="item"
+                            input type="submit" value="Delete advert" name="submit_button"  
             -elsif element["AdKeyword"] == session[:sort_keyword].capitalize && element["AdUsername"] == session[:view_user]
                 h3 ------------------------------------- 
                 / ^h3 only used for formating
-                h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
+                -if element["AdPicture"] != ""
+                    img src=element["AdPicture"] alt="img/bild"                  
+                -if session[:view_user] != session[:user]
+                    h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                 h3 #{element["AdKeyword"]}
                 h3 #{element["AdText"]}
-                h3 #{element["AdPicture"]}
                 form action="/post/#{element["AdId"]}" method="get"
                     input type="submit" value="to advert"
-
-
-/ / ads display after desendin id
-/ - var = call_db_table("adverts")
-/ / p #{var}
-/ -var.reverse.each do |element|
-/      article 
-/         -if element != 0
-/             -if element["AdUsername"] == session[:view_user]
-/                 p Posted by <a href="#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
-/                 p #{element["AdKeyword"]}
-/                 p #{element["AdText"]}
-/                 p #{element["AdPicture"]}
-/                 br
-
-
+                -if session[:view_user] == session[:user]
+                    br
+                    form action="/delete" method="POST"
+                        input type="hidden" value="adverts" name="table"
+                        input type="hidden" value="AdId" name="field"
+                        input type="hidden" value="#{element["AdId"]}" name="item"
+                        input type="submit" value="Delete advert" name="submit_button"  

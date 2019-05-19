@@ -1,4 +1,5 @@
-h2 Advertpage
+/ debug
+p Advertpage
 
 -advert = call_db_table_specifik("adverts", session[:view_post])
 -bid_history = call_db_table("auctions")
@@ -24,14 +25,14 @@ h2 Advertpage
                         input type="number" name="quantity" min=bid_minimum max="1000000" placeholder=bid_minimum
                         input type="submit" value="Bid"
                     h3 Largest bid: #{largest_bid}
-                    
-                    -bid_history.each do |element|
+                    h3 Bidding history:
+                    -bid_history.reverse.each do |element|
                         article 
                             -if element != 0
                                 -if element["IdAd"] == session[:view_post] 
-                                    p --------------------
                                     h3 Bid by <a href="/profile/#{get_name_from_userid(element["IdUsername"])}"> #{get_name_from_userid(element["IdUsername"])}</a>
                                     h3 Amount: #{element["Bid"]}
+                                    p --------------------
                 -else element["AdKeyword"] == "buy" 
                     form action="/profile/#{element["AdUsername"]}" method="GET"
                         input type="submit" value="Profile"
