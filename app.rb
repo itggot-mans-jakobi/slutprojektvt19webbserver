@@ -148,7 +148,6 @@ end
 #   Displays an error code
 #
 get("/error") do
-
     slim(:error)
 end
 post("/logout") do
