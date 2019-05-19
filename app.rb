@@ -14,17 +14,15 @@ set :session_secret, "secret"
 #
 #   @see Model#call_db_table
 get("/") do
-
     if session[:sort_keyword] == nil
         session[:sort_keyword] = "all"
     end
-
     session[:adverts_main] = call_db_table("adverts")
     
     slim(:index)
 end
 
-#   Displays all adverts by a particular user
+#   Displays all adverts by a particular user, and redirects to "/error" i an error occurs 
 #
 #   @params [String] user, The username of a user
 get("/profile/:user") do
@@ -43,14 +41,16 @@ get("/profile/?") do
     slim(:index)
 end
 
-#   Checks if a password of a user is the same as in the database and creates a user if the username is not taken and redirects to "/" 
+#   Checks if a password of a user is the same as in the database and creates a user if the username is not taken redirects back to te previus page and redirects to "/error" i an error occurs 
 #
 #   @params [String] username, The inputed username of a user
-#   @params [String] password1, The inputed password of a user
+#   @params [String] password1, The first inputed password of a user
+#   @params [String] password2, The second inputed password of a user
 #   @params [String] submit_button, Differentiate between "Login" or "create user" 
 #
 #   @see Model#password_test
 #   @see Model#user_create
+#   @see Model#user_exist
 post("/user_login") do
     username = params["username"]
     password = params["password1"]
@@ -61,21 +61,21 @@ post("/user_login") do
         if username != nil && password != ""
                 #user login 
             if params["submit_button"] == "Login"
-                # p password_test(username, password)
-                session[:logged_in] = password_test(username, password)
-                if password_test(username, password) == true
-                    # p session[:user] = username 
-                    session[:user] = username
-                    redirect back
-                   
+                if user_exist(username) == true
+                    session[:logged_in] = password_test(username, password)
+                    if password_test(username, password) == true
+                        session[:user] = username
+                        redirect back
+                    else
+                        session[:errorCode] = "wrong password"
+                    end
                 else
-                    session[:errorCode] = "wrong password"
+                    session[:errorCode] = "User does not exist"   
                 end
             else
                     #Create user
                 if params["submit_button"] == "Create user"
                     if password == password2
-
                         if user_exist(username) == false
                             session[:user] = username    
                             result = user_create(username, password)
@@ -98,7 +98,7 @@ post("/user_login") do
     redirect("/error")
 end
 
-#   Creates a new advert if the advert contains characters
+#   Creates a new advert if the advert contains characters and redirects to "/error" i an error occurs
 #
 #   @params [String] adtext, The text of the advert
 #   @params [String] adpicture, The picture of the advert
@@ -117,10 +117,9 @@ post("/ad_new") do
     redirect("/profile/#{session[:user]}")
 end
 
-#   Sorts the adverts displayed by keywords and redirects to ether "/" or "/profile/#{session[:view_user]}"
+#   Sorts the adverts displayed and redirects back to te previus page
 #
 #   @params [String] keyword, The keyword of the advert
-#   @params [String] pagename, The pagename of the page direkts back to the right page 
 post("/main_sort") do
     session[:sort_keyword] = params["keyword"]
     redirect back
@@ -135,7 +134,7 @@ get("/post/:postid") do
     slim(:advert)
 end
 
-#   Creates a bid on a specific advert and redirects to "/"
+#   Creates a bid on a specific advert and redirects back to te previus page
 #
 #   @params [String] quantity, The value of the bid
 #
@@ -145,23 +144,36 @@ post("/bid") do
     redirect back
 end
 
-#   Displays an error code
+#   Displays an error message
 #
 get("/error") do
     slim(:error)
 end
-post("/logout") do
 
+#   Destroys the current session and redirects back to te previus page
+#
+post("/logout") do 
     session.destroy
     redirect back
 end
 
+#   Switches the current user create/loggin values and redirects back to te previus page
+#
 post("/loggin_create_switch") do
     if session[:keyword_switch] == nil
         session[:keyword_switch] = "create"
     else
         session[:keyword_switch] = nil
     end
+
+    redirect back
+end
+
+post("/delete") do
+    item = params["item"]
+    delete(params["table"], params["field"], item)
+    session[:user].destroy   
+    session[:logged_in] = false
 
     redirect back
 end

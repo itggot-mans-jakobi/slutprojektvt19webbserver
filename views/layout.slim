@@ -43,6 +43,12 @@ html lang="en"
 
         -else 
             form action="/logout" method="POST"
-                input type="submit" value="logout" name="submit_button"    
+                input type="submit" value="logout" name="submit_button"  
+            form action="/delete" method="POST"
+                input type="hidden" value="users" name="table"
+                input type="hidden" value="Username" name="field"
+                input type="hidden" value="#{session[:user]}" name="item"
+                input type="submit" value="Delete" name="submit_button"  
+              
 
         ==yield
