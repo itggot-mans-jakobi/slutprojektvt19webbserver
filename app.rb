@@ -119,15 +119,24 @@ post("/ad_new") do
     
     redirect("/profile/#{session[:user]}")
 end
+
+#   updates an advert and redirects to "/error" i an error occurs
+#
+#   @params [String] adtext, The text of the advert
+#   @params [String] adpicture, The picture of the advert
+#
+#   @see Model#ad_update
 post("/ad_update") do
     adtext = params["adtext"] 
     adpicture = params["adpicture"]
     if adtext != ""
-        ad_uppdate(session[:user], adtext, adpicture)
+        ad_update(session[:user], adtext, adpicture)
     else
         session[:errorCode] = "advert text is empty"
         redirect("/error")
     end
+
+    redirect("/profile/#{session[:user]}")
 end
 
 post("/ad_uppdate") do
