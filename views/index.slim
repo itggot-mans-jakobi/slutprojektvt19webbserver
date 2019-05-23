@@ -22,7 +22,7 @@ h4 Currently sorted by #{session[:sort_keyword]}
             -if session[:sort_keyword] == "all" || session[:sort_keyword] == nil
                 h3 -------------------------------------                 
                 -if element["AdPicture"] != ""
-                    img src=element["AdPicture"] alt="img/bild"         
+                    img src="/img/#{element["AdPicture"]}.png" alt="img/bild"         
                 h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                 h3 #{element["AdKeyword"]}
                 h3 #{element["AdText"]}
@@ -33,7 +33,7 @@ h4 Currently sorted by #{session[:sort_keyword]}
                 h3 ------------------------------------- 
                 / ^h3 only used for formating
                 -if element["AdPicture"] != ""
-                    img src=element["AdPicture"] alt="img/bild"         
+                    img src="/img/#{element["AdPicture"]}.png" alt="img/bild"         
                 h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                 br
                 h3 #{element["AdKeyword"]}

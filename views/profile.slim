@@ -36,14 +36,17 @@ h4 Currently sorted by #{session[:sort_keyword]}
                 -if element["AdUsername"] == session[:view_user]
                     h3 -------------------------------------                 
                     -if element["AdPicture"] != ""
-                        img src="#{element["AdPicture"]}" alt="img/bild"
+                        img src="/img/#{element["AdPicture"]}.png" alt="img/bild"
                     -if session[:view_user] != session[:user]
                         h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                     h3 #{element["AdKeyword"]}
                     h3 #{element["AdText"]}
                     form action="/post/#{element["AdId"]}" method="get"
                         input type="submit" value="to advert"
-                    -if session[:view_user] == session[:user]
+                    -if session[:view_user] == session[:user] && session[:logged_in] == true
+                        form action="/post/#{element["AdId"]}" method="get"
+                            input type="hidden" value="true" name="edit"
+                            input type="submit" value="edit"                        
                         br
                         form action="/delete" method="POST"
                             input type="hidden" value="adverts" name="table"
@@ -54,7 +57,7 @@ h4 Currently sorted by #{session[:sort_keyword]}
                 h3 ------------------------------------- 
                 / ^h3 only used for formating
                 -if element["AdPicture"] != ""
-                    img src=element["AdPicture"] alt="img/bild"                  
+                    img src="/img/#{element["AdPicture"]}.png" alt="img/bild"                  
                 -if session[:view_user] != session[:user]
                     h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
                 h3 #{element["AdKeyword"]}

@@ -12,14 +12,19 @@ p Advertpage
                     -largest_bid = element["Bid"]
 
 -bid_minimum = largest_bid.to_i + 1
+
 -advert.each do |element|
     article 
         -if element != 0
             -if element["AdId"] == session[:view_post] 
-                h3 Posted by <a href="/profile/#{element["AdUsername"]}"> #{element["AdUsername"]}</a>
-                h3 #{element["AdKeyword"]}
-                h3 #{element["AdText"]}
-                h3 #{element["AdPicture"]}
+                -if locals[:edit] == true
+                    form action="/ad_uppdate" method="POST"
+                        textarea name="adtext" cols="30" rows="5" #{element["AdText"]}
+                        br
+                        textarea name="adpicture" cols="30" rows="1" #{element["AdPicture"]}
+                        br
+                        input type="submit" value="Commit edit" name="submit"
+                
                 -if element["AdKeyword"] == "Sell" 
                     form action="/bid" method="POST"
                         input type="number" name="quantity" min=bid_minimum max="1000000" placeholder=bid_minimum
@@ -36,7 +41,9 @@ p Advertpage
                 -else element["AdKeyword"] == "buy" 
                     form action="/profile/#{element["AdUsername"]}" method="GET"
                         input type="submit" value="Profile"
-
+                
+   
+    
 
 / else sell stuff without auction
 

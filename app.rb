@@ -110,7 +110,6 @@ end
 post("/ad_new") do
     adtext = params["adtext"] 
     adpicture = params["adpicture"]
-    adpicture = "/img/" + "#{adpicture}" + ".png"
     if adtext != ""
         ad_create(session[:user] ,adtext ,adpicture , params["keyword"])
     else
@@ -120,6 +119,32 @@ post("/ad_new") do
     
     redirect("/profile/#{session[:user]}")
 end
+post("/ad_update") do
+    adtext = params["adtext"] 
+    adpicture = params["adpicture"]
+    if adtext != ""
+        ad_uppdate(session[:user], adtext, adpicture)
+    else
+        session[:errorCode] = "advert text is empty"
+        redirect("/error")
+    end
+end
+
+post("/ad_uppdate") do
+    adtext = params["adtext"] 
+    adpicture = params["adpicture"]
+    if adtext != ""
+
+
+        ad_create(session[:user] ,adtext ,adpicture , params["keyword"])
+    else
+        session[:errorCode] = "advert text is empty"
+        redirect("/error")
+    end
+    
+    redirect("/profile/#{session[:user]}")
+end
+
 
 #   Sorts the adverts displayed and redirects back to te previus page
 #
@@ -134,8 +159,13 @@ end
 #   @params [String] postid, The id of a specific advert
 get("/post/:postid") do
     session[:view_post] = params["postid"]
-
-    slim(:advert)
+    p params["edit"]
+    p "......"
+    if params["edit"] == "true"
+        result = true
+    end
+    slim(:advert, locals:{
+        edit: result})
 end
 
 #   Creates a bid on a specific advert and redirects back to te previus page

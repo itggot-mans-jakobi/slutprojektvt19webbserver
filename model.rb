@@ -107,6 +107,26 @@ module MyModule
         db.execute("INSERT INTO adverts (AdUsername, AdText, AdPicture, AdKeyword) VALUES (?,?,?,?)", adusername, adtext, adpicture, adkeyword)
     end
 
+    # Updates an advert
+    #
+    # @param [String] adusername username
+    # @param [String] adtext the text
+    # @param [String] adpicture a picture
+    # @param [String] adkeyword a keyword ("sell"/"buy")
+    def ad_uppdate(adusername, adtext, adpicture)
+        db = call_db()
+        adid = get_userid_from_name(adusername)
+        db.execute("UPDATE adverts SET AdText = ? WHERE AdId = ?", adtext, adid)
+        db.execute("UPDATE adverts SET adpicture = ? WHERE AdId = ?", adpicture, adid)
+
+    end
+    
+
+
+
+
+
+
     # Attempts to locate a userid by its username
     #
     # @param [String] username username
